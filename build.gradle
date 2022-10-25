@@ -81,7 +81,7 @@ dependencies {//
         exclude group: 'com.google.guava', module: 'guava'
     }
 
-    implementation(files("Libs/WurstMinus-Two-4.3-release.jar"))//This must point to the Wurst-2 Jar
+    implementation(files("Libs/WurstMinus-Two-4.4-release.jar"))//This must point to the Wurst-2 Jar
 }
 
 processResources {
@@ -131,8 +131,16 @@ reobf {
 jar {
     manifest {
         attributes(
-                'Main': 'me.third.right.pluginBase.Main',
-                'Mixin': 'mixins.sample.json'
+                /*
+                    Required the plugin won't be loaded at all if the required attributes are not present.
+                 */
+                'Main': 'me.third.right.pluginBase.Main',//Required
+                'Mixin': 'mixins.sample.json',//Not required
+                /*
+                   The TargetVersion is a min version the plugin will work on. so 4.5+ will load the plugin. 4.4- will not.
+                */
+                'TargetVersion': '4.4',//Required
+
         )
     }
 }

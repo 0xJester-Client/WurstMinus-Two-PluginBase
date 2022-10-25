@@ -7,4 +7,3 @@ You must have a copy of Wurst- 2 to use this. L
 
 # TODO:
 * Go through Gradle build settings and remove uneeded stuff.
-* Do more bug testing and fixing.
